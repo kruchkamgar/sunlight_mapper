@@ -38,7 +38,9 @@ class Application extends React.Component {
     let map = this.state.map;
 
     // calculate size of solar array from polygonCoordinates
+    turf.area(this.state.polygon);
     // set the center of the map to the polygon coordinates center
+    map.flyTo({center: this.state.coordinates});
     // drawPolygon(map);
 
   }
