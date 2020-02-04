@@ -5,7 +5,7 @@ const Input = ({onAddressInput}) => {
   let address
   const query_submit = event => {
     event.preventDefault()
-    encoded_address = address.replace(' ', "%20");
+    let encoded_address = address.value.replace(' ', "%20");
     onAddressInput(encoded_address) }
 
   return (
