@@ -12,7 +12,7 @@ class Application extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      coordinates: [],
+      coordinates: [-71.0589, 42.36],
       center: [-71.0589, 42.36],
       geo_data: {}
     };
@@ -33,15 +33,26 @@ class Application extends React.Component {
     .catch(error => console.log(error) );
   }
 
-  componentDidUpdate(){
-    console.log(this.state.address);
+  componentDidUpdate(prevProps, prevState){
     let map = this.state.map;
 
     // calculate size of solar array from polygonCoordinates
-    turf.area(this.state.polygon);
+    let polygonArea
+    if (typeof this.state.polygon != 'undefined') {
+      if (prevState.polygon != this.state.polygon) {
+      console.log(this.state.polygon);
+      polygonArea =
+      turf.area(
+        turf.polygon([this.state.polygon]) );
+
+      console.log("area: " + polygonArea); }
+      //draw the polygon to map
+      drawPolygon(map, this.state.polygon);
+    }
     // set the center of the map to the polygon coordinates center
-    map.flyTo({center: this.state.coordinates});
-    // drawPolygon(map);
+    map.flyTo({
+      center: this.state.coordinates,
+      zoom: 15 });
 
   }
 
