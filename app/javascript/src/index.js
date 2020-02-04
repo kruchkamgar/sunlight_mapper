@@ -22,10 +22,12 @@ class Application extends React.Component {
     fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodedAddress}.json?access_token=${access.token}`)
     .then(response => response.json())
     .then(geo_json => {
-      let coordinates = {};
+      let coordinates = geo_json.features[0].geometry.coordinates;
+
       this.setState( (state, props) => ({
-        geo_data: geo_json,
+        geo_data: geo_json.features[0],
         coordinates: coordinates,
+        center: coordinates,
         polygon: polygonCoordinates(coordinates) }) )
     })
     .catch(error => console.log(error) );

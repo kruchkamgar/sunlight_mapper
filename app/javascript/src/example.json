@@ -1,0 +1,177 @@
+{
+  "type": "FeatureCollection",
+  "query": ["200", "post", "kunhardt"],
+  "features": [{
+    "id": "address.5075460926620460",
+    "type": "Feature",
+    "place_type": ["address"],
+    "relevance": 1,
+    "properties": {
+      "accuracy": "point"
+    },
+    "text": "Post Kunhardt Road",
+    "place_name": "200 Post Kunhardt Road, Bernardsville, New Jersey 07924, United States",
+    "center": [-74.598394, 40.730116],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-74.598394, 40.730116]
+    },
+    "address": "200",
+    "context": [{
+      "id": "neighborhood.277642",
+      "text": "Somersetin"
+    }, {
+      "id": "postcode.6962306904321920",
+      "text": "07924"
+    }, {
+      "id": "place.5448319829209670",
+      "wikidata": "Q823107",
+      "text": "Bernardsville"
+    }, {
+      "id": "region.14919479731700330",
+      "short_code": "US-NJ",
+      "wikidata": "Q1408",
+      "text": "New Jersey"
+    }, {
+      "id": "country.9053006287256050",
+      "short_code": "us",
+      "wikidata": "Q30",
+      "text": "United States"
+    }]
+  }, {
+    "id": "address.3279094395015190",
+    "type": "Feature",
+    "place_type": ["address"],
+    "relevance": 0.471875,
+    "properties": {
+      "accuracy": "interpolated"
+    },
+    "text": "Puiestee Tänav",
+    "place_name": "Puiestee Tänav 200, Tartu, Estonia",
+    "matching_text": "Puiestee",
+    "matching_place_name": "Puiestee 200, Tartu, Estonia",
+    "center": [26.745218, 58.382699],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [26.745218, 58.382699],
+      "interpolated": true,
+      "omitted": true
+    },
+    "address": "200",
+    "context": [{
+      "id": "place.11031408523763300",
+      "wikidata": "Q13972",
+      "text": "Tartu"
+    }, {
+      "id": "region.10941695717724020",
+      "short_code": "EE-78",
+      "wikidata": "Q192370",
+      "text": "Tartumaa"
+    }, {
+      "id": "country.5827954833759940",
+      "short_code": "ee",
+      "wikidata": "Q191",
+      "text": "Estonia"
+    }]
+  }, {
+    "id": "address.6033217976021368",
+    "type": "Feature",
+    "place_type": ["address"],
+    "relevance": 0.467156,
+    "properties": {
+      "accuracy": "street"
+    },
+    "text": "Pönt",
+    "place_name": "Pönt, 6541 Sta. Maria in Calanca, Switzerland",
+    "center": [9.153514, 46.272695],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.153514, 46.272695]
+    },
+    "context": [{
+      "id": "postcode.8759174775031000",
+      "text": "6541"
+    }, {
+      "id": "place.8863132911602840",
+      "text": "Sta. Maria in Calanca"
+    }, {
+      "id": "region.19206382064261260",
+      "short_code": "CH-GR",
+      "wikidata": "Q11925",
+      "text": "Graubünden"
+    }, {
+      "id": "country.14796626434437020",
+      "short_code": "ch",
+      "wikidata": "Q39",
+      "text": "Switzerland"
+    }]
+  }, {
+    "id": "address.6601025255306990",
+    "type": "Feature",
+    "place_type": ["address"],
+    "relevance": 0.467156,
+    "properties": {
+      "accuracy": "street"
+    },
+    "text": "Port",
+    "place_name": "Port, 6197 Schangnau, Switzerland",
+    "center": [7.858563, 46.820441],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.858563, 46.820441]
+    },
+    "context": [{
+      "id": "postcode.11628262236643870",
+      "text": "6197"
+    }, {
+      "id": "place.8141978240985358",
+      "wikidata": "Q66700",
+      "text": "Schangnau"
+    }, {
+      "id": "region.11657871833960580",
+      "short_code": "CH-BE",
+      "wikidata": "Q11911",
+      "text": "Bern"
+    }, {
+      "id": "country.14796626434437020",
+      "short_code": "ch",
+      "wikidata": "Q39",
+      "text": "Switzerland"
+    }]
+  }, {
+    "id": "address.1104300750",
+    "type": "Feature",
+    "place_type": ["address"],
+    "relevance": 0.467156,
+    "properties": {
+      "accuracy": "street"
+    },
+    "text": "Psot",
+    "place_name": "Psot, 61400 La Chapelle-Montligeon, France",
+    "center": [0.650072, 48.491712],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [0.650072, 48.491712]
+    },
+    "context": [{
+      "id": "postcode.14317872887665630",
+      "text": "61400"
+    }, {
+      "id": "place.12000346111738070",
+      "wikidata": "Q1047591",
+      "text": "La Chapelle-Montligeon"
+    }, {
+      "id": "region.16035352462745380",
+      "short_code": "FR-61",
+      "wikidata": "Q12679",
+      "text": "Orne"
+    }, {
+      "id": "country.9865485196641660",
+      "short_code": "fr",
+      "wikidata": "Q142",
+      "text": "France"
+    }]
+  }],
+  "attribution": "NOTICE: © 2020 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+}
+prepres
