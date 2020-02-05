@@ -19,8 +19,3 @@ Things you may want to cover:
 - beyond +/- 23.5˚ latitude, however, this nominal light power (theoretical maximum) should decline based on the angle of the panels—(which never situate directly under the sun) and Beer-Lambert–(out of scope)
   - sine of the angle to find projection ratio facing the sun, as compared to direct sunlight achieve within the ToCs
   - angle taken from conversion, of latitude between pole and equator
-
-
-## Schedule
-- 4:40pm start?
--
