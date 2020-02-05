@@ -13,11 +13,17 @@ export function polygonCoordinates(initialCoordinates) {
 }
 
 export function drawPolygon(map, coordinates) {
-  let sourceLoaded = map.isSourceLoaded('solarArray');
-  if ( sourceLoaded ) {
-    map.removeLayer('polygon');
-    map.removeSource('solarArray'); }
+  if (map.getLayer('polygon')){
+    	map.removeLayer('polygon');
+  }
+  if (map.getSource('solarArray')){
+  	map.removeSource('solarArray');
+  }
 
+  addSourceData(map, coordinates);
+}
+
+function addSourceData(map, coordinates){
   map.addSource('solarArray', {
     'type': 'geojson',
     'data': {
