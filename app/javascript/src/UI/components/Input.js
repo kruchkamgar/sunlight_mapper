@@ -15,7 +15,7 @@ const Input = ({onAddressInput}) => {
       <input id="address"
         onKeyDown={ query_submit }
         ref={input => address = input}></input>
-    </div>
+    </div> 
   )}
 
 export default Input
