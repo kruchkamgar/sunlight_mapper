@@ -1,5 +1,3 @@
-# README
-
 ## Config info
 - versions
   - ruby 2.5.1
