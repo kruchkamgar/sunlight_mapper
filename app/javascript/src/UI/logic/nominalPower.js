@@ -14,21 +14,23 @@ export function calcNominalPower(area, coordinates) {
   let equatorLatitude = 90;
   let nominalLightLatitude = 23.5;
 
-  let latitude = Math.abs(coordinates[1]);
+  let latitude = Math.abs(coordinates[0][1])
   if (latitude > 23.5) {
     let angleAwayFromPlane =
-    (equatorLatitude - nominalLightLatitude) - latitude;
+    (equatorLatitude - nominalLightLatitude) -
+    (latitude - nominalLightLatitude);
     // use the cosine of the angle (adjascent over hypotenuse) to derive the projection ratio
     const angleToRadians = Math.PI/180;
     let projectionRatio =
     Math.cos(
       angleAwayFromPlane * angleToRadians );
-      // multiply the area by the projection ratio
-      let projectedArea = area * projectionRatio;
-      // convert the project area into a solar rating——
-      let nominalPower = parseFloat(projectedArea) * nominalPower;
+    // multiply the area by the projection ratio
+    let projectedArea = area * projectionRatio;
+    // convert the project area into a solar rating——
+    nominalPower = parseFloat(projectedArea) * nominalPower;
   }
-  return nominalPower;
+  return parseFloat(
+    nominalPower.toFixed(2) );
 }
 
 export default calcNominalPower
