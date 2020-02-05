@@ -10,12 +10,12 @@ const Input = ({onAddressInput}) => {
       onAddressInput(encoded_address) }}
 
   return (
-    <div className="query">
+    <form className="query">
       <label htmlFor="address">address?</label>
       <input id="address"
         onKeyDown={ query_submit }
         ref={input => address = input}></input>
-    </div> 
+    </form> 
   )}
 
 export default Input
