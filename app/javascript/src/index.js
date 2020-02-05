@@ -9,7 +9,7 @@ import calcNominalPower from './UI/logic/nominalPower'
 import access from 'src/api_config'
 mapboxgl.accessToken = access.token;
 
-class Application extends React.Component {
+class Application extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,20 +42,20 @@ class Application extends React.Component {
     if (typeof this.state.polygon != 'undefined') {
       if (prevState.polygon != this.state.polygon) {
         console.log(this.state.polygon);
-        // area in square meters: https://turfjs.org/docs/#area 
+        // area in square meters: https://turfjs.org/docs/#area
         polygonArea =
         turf.area(
           turf.polygon([this.state.polygon]) );
 
-        console.log("area: " + polygonArea); }
-      //draw the polygon to map
-      drawPolygon(map, this.state.polygon);
-      // calculate the nominal solar rating
-      let nominalPower =
-      calcNominalPower(polygonArea, this.state.coordinates)
-      console.log("nominalPower: " + nominalPower);
-
-      this.setState({nominalPower: nominalPower});
+          console.log("area: " + polygonArea);
+        //draw the polygon to map
+        drawPolygon(map, this.state.polygon);
+        // calculate the nominal solar rating
+        let nominalPower =
+        calcNominalPower(polygonArea, this.state.coordinates)
+        console.log("nominalPower: " + nominalPower);
+        this.setState({nominalPower: nominalPower});
+      }
     }
     // set the center of the map to the polygon coordinates center
     map.flyTo({
@@ -77,14 +77,6 @@ class Application extends React.Component {
     .on('load', () => {
       this.setState((state, props) => ({ map: map }) );
     });
-
-    // map
-    // .addControl(
-    // new MapboxGeocoder({
-    //   accessToken: mapboxgl.accessToken,
-    //   zoom: 14,
-    //   placeholder: 'Enter search address',
-    //   mapboxgl: mapboxgl }) ); {/*localGeocoder: (local storage?),*/}
   }
 
   render() {
