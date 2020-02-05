@@ -1,14 +1,14 @@
 # README
 
-* Config info
-  - versions
-    - ruby 2.5.1
-    - node 13.7.0 (stable)
-  - System dependencies
-    - see package.json; gemfile
-  - Configuration
-    - see config/webpack/development.js:
-       - delete nodeModules from loaders (to allow mapbox to work)
+## Config info
+- versions
+  - ruby 2.5.1
+  - node 13.7.0 (stable)
+- System dependencies
+  - see package.json; gemfile
+- Configuration
+  - see config/webpack/development.js:
+     - delete nodeModules from loaders (to allow mapbox to work)
 
 
 ## Notes
