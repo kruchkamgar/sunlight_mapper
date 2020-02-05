@@ -2,14 +2,15 @@
 export function polygonCoordinates(initialCoordinates) {
   let polygonAdjustments = [[0,0],[.0005,0],[.0005,.0005],[0,.0005], [0,0]]
 
-  return polygonCoordinates =
+  let polygon =
   polygonAdjustments
   .map( (element, index) =>
     [ parseFloat(
         (initialCoordinates[0] + element[0]).toFixed(5) ),
       parseFloat(
         (initialCoordinates[1] + element[1]).toFixed(5) ) ]
-  )
+  );
+  return polygon;
 }
 
 export function drawPolygon(map, coordinates) {
