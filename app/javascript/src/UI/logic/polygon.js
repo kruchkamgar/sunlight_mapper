@@ -49,7 +49,7 @@ function addSourceLabel(map, coordinates, nominalPower) {
     'layout': {
       'text-field': 'nominalPower: ' + (nominalPower/1000).toFixed(2) + ' kW',
       'text-size': 12,
-      'icon-text-fit': 'width'
+      'text-max-width': 15
     }
   });
 }
