@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Input from './UI/components/Input';
+import Output from './UI/components/Output'
 import mapboxgl from 'mapbox-gl';
 import fetch from 'isomorphic-fetch';
 import { drawPolygon, polygonCoordinates } from './UI/logic/polygon'
@@ -83,6 +84,9 @@ class Application extends React.PureComponent {
     return (
         <div ref={element => this.mapContainer = element} className="mapContainer">
           <Input onAddressInput={this.onAddressInput}/>
+          <Output
+            nominalPower={this.state.nominalPower}
+            coordinates={this.state.coordinates} />
         </div>
     )
   }
