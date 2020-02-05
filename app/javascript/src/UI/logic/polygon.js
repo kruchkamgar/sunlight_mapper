@@ -27,7 +27,7 @@ export function drawPolygon(map, coordinates, nominalPower) {
 
 function addSourceLabel(map, coordinates, nominalPower) {
   let position = [
-    coordinates[2][0], coordinates[2][1] + .0003 ]
+    coordinates[2][0], coordinates[3][1] + .0002 ]
   map.addSource('point', {
     'type': 'geojson',
     'data': {
@@ -48,7 +48,7 @@ function addSourceLabel(map, coordinates, nominalPower) {
     'source': 'point',
     'layout': {
       'text-field': 'nominalPower: ' + (nominalPower/1000).toFixed(2) + ' kW',
-      'text-size': 12,
+      'text-size': 14,
       'text-max-width': 15
     }
   });
