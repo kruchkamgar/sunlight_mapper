@@ -11,7 +11,7 @@ test('returns nominal power', () => {
       ]
   let nominalPower = calcNominalPower(polygonArea, coordinates)
   // .165 efficiency
-  expect(nominalPower).toBe(165);
+  expect(nominalPower).toBe(165000);
 })
 
 test('returns nominal power –latitude > 23.5', () => {
@@ -25,5 +25,5 @@ test('returns nominal power –latitude > 23.5', () => {
       ]
   let nominalPower = calcNominalPower(polygonArea, coordinates)
   // .165 efficiency
-  expect(nominalPower).toBe(106064.37);
+  expect(nominalPower).toBe(158203.62);
 })

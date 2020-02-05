@@ -7,6 +7,7 @@ export function calcNominalPower(area, coordinates) {
   let nominalLightPower = 1000; // W/m2
   let typicalEfficiency = .165;
   let nominalPower = nominalLightPower * typicalEfficiency;
+  let nominalPowerTotal = nominalPower * area;
 
   // contingency: use the coordinates to derive the angle of the earth with respect to sunlight source
   // standard for calculating nominal light power (35˚ latitude, yet with angled panels)
@@ -16,9 +17,7 @@ export function calcNominalPower(area, coordinates) {
 
   let latitude = Math.abs(coordinates[0][1])
   if (latitude > 23.5) {
-    let angleAwayFromPlane =
-    (equatorLatitude - nominalLightLatitude) -
-    (latitude - nominalLightLatitude);
+    let angleAwayFromPlane = latitude - nominalLightLatitude;
     // use the cosine of the angle (adjascent over hypotenuse) to derive the projection ratio
     const angleToRadians = Math.PI/180;
     let projectionRatio =
@@ -27,10 +26,10 @@ export function calcNominalPower(area, coordinates) {
     // multiply the area by the projection ratio
     let projectedArea = area * projectionRatio;
     // convert the project area into a solar rating——
-    nominalPower = parseFloat(projectedArea) * nominalPower;
+    nominalPowerTotal = nominalPower * parseFloat(projectedArea);
   }
   return parseFloat(
-    nominalPower.toFixed(2) );
+    nominalPowerTotal.toFixed(2) );
 }
 
 export default calcNominalPower
