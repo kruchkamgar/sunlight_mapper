@@ -3,14 +3,14 @@
 Things you may want to cover:
 
 * Config info
-  - ruby 2.5.1
-  - node 13.7.0 (stable)
-
-** System dependencies
-  - see package.json; gemfile
-
-* Configuration
-  - see 
+  - versions
+    - ruby 2.5.1
+    - node 13.7.0 (stable)
+  - System dependencies
+    - see package.json; gemfile
+  - Configuration
+    - see config/webpack/development.js:
+       - delete nodeModules from loaders (to allow mapbox to work)
 
 
 ## Notes
