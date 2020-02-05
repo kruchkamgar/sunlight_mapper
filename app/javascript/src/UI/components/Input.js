@@ -4,17 +4,18 @@ const Input = ({onAddressInput}) => {
 
   let address
   const query_submit = event => {
-    event.preventDefault()
-    let encoded_address = address.value.replace(' ', "%20");
-    onAddressInput(encoded_address) }
+    if (event.keyCode === 13) {
+      event.preventDefault()
+      let encoded_address = address.value.replace(' ', "%20");
+      onAddressInput(encoded_address) }}
 
   return (
-    <form onSubmit={ query_submit } className="query">
+    <div className="query">
       <label htmlFor="address">address?</label>
       <input id="address"
+        onKeyDown={ query_submit }
         ref={input => address = input}></input>
-      <button>load address</button>
-    </form>
+    </div>
   )}
 
 export default Input
