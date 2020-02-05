@@ -49,13 +49,14 @@ class Application extends React.PureComponent {
           turf.polygon([this.state.polygon]) );
 
           console.log("area: " + polygonArea);
-        //draw the polygon to map
-        drawPolygon(map, this.state.polygon);
         // calculate the nominal solar rating
         let nominalPower =
-        calcNominalPower(polygonArea, this.state.coordinates)
-        console.log("nominalPower: " + nominalPower);
+        calcNominalPower(
+          polygonArea, this.state.coordinates);
         this.setState({nominalPower: nominalPower});
+        console.log("nominalPower: " + nominalPower);
+        //draw the polygon to map
+        drawPolygon(map, this.state.polygon, nominalPower);
       }
     }
     // set the center of the map to the polygon coordinates center
@@ -83,10 +84,12 @@ class Application extends React.PureComponent {
   render() {
     return (
         <div ref={element => this.mapContainer = element} className="mapContainer">
-          <Input onAddressInput={this.onAddressInput}/>
-          <Output
-            nominalPower={this.state.nominalPower}
-            coordinates={this.state.coordinates} />
+          <div className="container data">
+            <Input onAddressInput={this.onAddressInput}/>
+            <Output
+              nominalPower={this.state.nominalPower}
+              coordinates={this.state.coordinates} />
+          </div>
         </div>
     )
   }

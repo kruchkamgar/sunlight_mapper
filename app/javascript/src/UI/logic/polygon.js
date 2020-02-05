@@ -13,15 +13,45 @@ export function polygonCoordinates(initialCoordinates) {
   return polygon;
 }
 
-export function drawPolygon(map, coordinates) {
-  if (map.getLayer('polygon')){
-    	map.removeLayer('polygon');
-  }
+export function drawPolygon(map, coordinates, nominalPower) {
   if (map.getSource('solarArray')){
-  	map.removeSource('solarArray');
+    map.removeLayer('label');
+    map.removeSource('point');
+    map.removeLayer('polygon');
+    map.removeSource('solarArray');
   }
 
   addSourceData(map, coordinates);
+  addSourceLabel(map, coordinates, nominalPower);
+}
+
+function addSourceLabel(map, coordinates, nominalPower) {
+  let position = [
+    coordinates[2][0], coordinates[2][1] + .0003 ]
+  map.addSource('point', {
+    'type': 'geojson',
+    'data': {
+      'type': 'FeatureCollection',
+      'features': [
+      {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Point',
+          'coordinates': position // top right corner of polygon
+        }
+      }] } // data
+  });
+
+  map.addLayer({
+    'id': 'label',
+    'type': 'symbol',
+    'source': 'point',
+    'layout': {
+      'text-field': 'nominalPower: ' + (nominalPower/1000).toFixed(2) + ' kW',
+      'text-size': 12,
+      'icon-text-fit': 'width'
+    }
+  });
 }
 
 function addSourceData(map, coordinates){
