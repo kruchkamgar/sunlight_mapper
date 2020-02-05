@@ -4,6 +4,7 @@ import Input from './UI/components/Input';
 import mapboxgl from 'mapbox-gl';
 import fetch from 'isomorphic-fetch';
 import { drawPolygon, polygonCoordinates } from './UI/logic/polygon'
+import calcNominalPower from './UI/logic/nominalPower'
 
 import access from 'src/api_config'
 mapboxgl.accessToken = access.token;
@@ -40,14 +41,21 @@ class Application extends React.Component {
     let polygonArea
     if (typeof this.state.polygon != 'undefined') {
       if (prevState.polygon != this.state.polygon) {
-      console.log(this.state.polygon);
-      polygonArea =
-      turf.area(
-        turf.polygon([this.state.polygon]) );
+        console.log(this.state.polygon);
+        // area in square meters: https://turfjs.org/docs/#area 
+        polygonArea =
+        turf.area(
+          turf.polygon([this.state.polygon]) );
 
-      console.log("area: " + polygonArea); }
+        console.log("area: " + polygonArea); }
       //draw the polygon to map
       drawPolygon(map, this.state.polygon);
+      // calculate the nominal solar rating
+      let nominalPower =
+      calcNominalPower(polygonArea, this.state.coordinates)
+      console.log("nominalPower: " + nominalPower);
+
+      this.setState({nominalPower: nominalPower});
     }
     // set the center of the map to the polygon coordinates center
     map.flyTo({
