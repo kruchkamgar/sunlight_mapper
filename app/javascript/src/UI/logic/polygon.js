@@ -1,14 +1,14 @@
 
 export function polygonCoordinates(initialCoordinates) {
-  let polygonAdjustments = [[0,0],[.0005,0],[.0005,.0005],[0,.0005], [0,0]]
+  const polygonAdjustments = [[0,0],[.0005,0],[.0005,.0005],[0,.0005], [0,0]]
 
-  let polygon =
+  const polygon =
   polygonAdjustments
-  .map( (element, index) =>
+  .map( (adjustment, index) =>
     [ parseFloat(
-        (initialCoordinates[0] + element[0]).toFixed(5) ),
+        (initialCoordinates[0] + adjustment[0]).toFixed(5) ),
       parseFloat(
-        (initialCoordinates[1] + element[1]).toFixed(5) ) ]
+        (initialCoordinates[1] + adjustment[1]).toFixed(5) ) ]
   );
   return polygon;
 }
@@ -26,7 +26,7 @@ export function drawPolygon(map, coordinates, nominalPower) {
 }
 
 function addSourceLabel(map, coordinates, nominalPower) {
-  let position = [
+  const position = [
     coordinates[2][0], coordinates[3][1] + .0002 ]
   map.addSource('point', {
     'type': 'geojson',

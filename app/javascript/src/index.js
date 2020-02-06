@@ -24,7 +24,7 @@ class Application extends React.PureComponent {
     fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodedAddress}.json?access_token=${access.token}`)
     .then(response => response.json())
     .then(geo_json => {
-      let coordinates = geo_json.features[0].geometry.coordinates;
+      const coordinates = geo_json.features[0].geometry.coordinates;
 
       this.setState( (state, props) => ({
         geo_data: geo_json.features[0],
@@ -36,7 +36,7 @@ class Application extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState){
-    let map = this.state.map;
+    const map = this.state.map;
 
     // calculate size of solar array from polygonCoordinates
     let polygonArea
@@ -50,7 +50,7 @@ class Application extends React.PureComponent {
 
           console.log("area: " + polygonArea);
         // calculate the nominal solar rating
-        let nominalPower =
+        const nominalPower =
         calcNominalPower(
           polygonArea, this.state.coordinates);
         this.setState({nominalPower: nominalPower});
@@ -67,7 +67,7 @@ class Application extends React.PureComponent {
   }
 
   componentDidMount() {
-    let map =
+    const map =
     new mapboxgl
     .Map({
       container: this.mapContainer,
