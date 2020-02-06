@@ -6,7 +6,7 @@ const Input = ({onAddressInput}) => {
   const query_submit = event => {
     if (event.keyCode === 13) {
       event.preventDefault()
-      let encoded_address = address.value.replace(' ', "%20");
+      const encoded_address = address.value.replace(' ', "%20");
       onAddressInput(encoded_address) }}
 
   return (
@@ -15,7 +15,7 @@ const Input = ({onAddressInput}) => {
       <input id="address"
         onKeyDown={ query_submit }
         ref={input => address = input}></input>
-    </form> 
+    </form>
   )}
 
 export default Input
